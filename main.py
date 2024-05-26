@@ -36,8 +36,10 @@ def main():
     after = time()
     print(f"Time to finish: {after - before} seconds.")
 
-    # for order in all_orders:
-    # print(f"Time it took to prepare | {order.get_info()} |: {order.get_total_time()}")
+    for order in all_orders:
+        print(
+            f"Time it took to prepare | {order.get_info()} |: {order.get_total_time()}"
+        )
 
 
 if __name__ == "__main__":
