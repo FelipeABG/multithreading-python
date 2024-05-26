@@ -1,11 +1,12 @@
 from random import uniform
-from time import sleep
+from entities.order import Order
+from time import sleep, time
 
 
 class Waiter:
 
-    def __init__(self, id, orders, condition, stopped_working):
-        self.stopped_working = stopped_working
+    def __init__(self, id, orders, condition, finished_waiters):
+        self.finished_waiters = finished_waiters
         self.id = id
         self.orders = orders
         self.condition = condition
@@ -20,10 +21,11 @@ class Waiter:
                 while len(self.orders) >= 4:
                     self.condition.wait()
 
-                order = f"Order {i} - Waiter {self.id}"
+                order = Order(i, self.id, time())
                 self.orders.append(order)
-                print(f"Waiter {self.id} realized | {order} |")
+                print(f"Waiter {self.id} realized | {order.get_info()} |")
                 self.condition.notify_all()
 
         with self.condition:
-            self.stopped_working.append(self.id)
+            self.finished_waiters.append(self.id)
+            self.condition.notify_all()
