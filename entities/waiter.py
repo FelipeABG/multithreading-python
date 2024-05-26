@@ -5,7 +5,8 @@ from time import sleep, time
 
 class Waiter:
 
-    def __init__(self, id, orders, condition, finished_waiters):
+    def __init__(self, id, orders, condition, finished_waiters, all_orders):
+        self.all_orders = all_orders
         self.finished_waiters = finished_waiters
         self.id = id
         self.orders = orders
@@ -23,6 +24,7 @@ class Waiter:
 
                 order = Order(i, self.id, time())
                 self.orders.append(order)
+                self.all_orders.append(order)
                 print(f"Waiter {self.id} realized | {order.get_info()} |")
                 self.condition.notify_all()
 
