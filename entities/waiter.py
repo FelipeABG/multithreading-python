@@ -12,7 +12,7 @@ class Waiter:
 
     def make_order(self):
         for i in range(self.MAX_ORDERS):
-            sleep(uniform(0.5, 2.0))
+            sleep(uniform(0.5, 1.5))
 
             with self.condition:
 
