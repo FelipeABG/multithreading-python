@@ -1,4 +1,4 @@
-# README: Restaurant Simulation Using Threads in Python
+# Restaurant Simulation Using Threads in Python
 
 ## Overview
 
