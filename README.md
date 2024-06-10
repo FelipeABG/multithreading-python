@@ -28,16 +28,16 @@ You are required to simulate a restaurant with one cook and multiple waiters usi
 ### Implementation Steps
 
 1. **Class Garcom (Waiter)**
-   - Method `fazer_pedido`: Adds a new order to the list of pending orders.
+   - Method `make_order`: Adds a new order to the list of pending orders.
    
 2. **Class Cozinheiro (Cook)**
-   - Method `prepara_pedido`: Removes an order from the list of pending orders and prepares it.
+   - Method `prepare_order`: Removes an order from the list of pending orders and prepares it.
    
 3. **Coordination**
    - Use `threading.Condition` to manage access to the list of pending orders.
    
 4. **Simultaneous Operation**
-   - Create multiple instances of `Garcom` and one instance of `Cozinheiro`, running them in separate threads.
+   - Create multiple instances of `Waiter` and one instance of `Chef`, running them in separate threads.
 
 5. **Synchronization**
    - Ensure waiters wait if the kitchen is full and the cook waits if there are no pending orders.
